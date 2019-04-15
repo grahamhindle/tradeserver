@@ -1,0 +1,13 @@
+type User {
+  id: ID! @id
+  name: String!
+  email: String @unique
+  trades: [Trade!]! @relation(link: INLINE)
+}
+
+type Trade {
+  id: ID! @id
+  description: String!
+  live: Boolean! @default(value: false)
+  trader: User
+}
